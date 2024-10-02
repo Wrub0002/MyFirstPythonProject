@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records List</title>
+</head>
+<body>
+    <h1> Records</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>city</th>
+        </tr>
+        {%for record in records%}
+        <tr>
+            <td>{{record.get_name()}}</td>
+            <td>{{record.get_age()}}</td>
+            <td>{{record.get_city()}}</td>
+            <td>
+               <a href="{{url_for('edit', name=record.get_name())}}">edit</a>
+               <a href="{{ url_for('delete', name=record.get_name()) }}">Delete</a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+<a href="{{ url_for('add') }}">Add New Record</a>
+</body>
+</html>

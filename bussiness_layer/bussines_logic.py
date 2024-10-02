@@ -12,13 +12,9 @@ def add_new_record():
     records.append(new_record)
     print(f"Record for {name} added")
 
-def edit_new_record():
-    name_to_edit = input("Enter the name of the record to edit: ")
+def edit_new_record(name, new_name, new_age, new_city):
     for rec in records:
-        if rec.get_name() == name_to_edit:
-            new_name = input("Enter new name: ")
-            new_age = input("enter new age: ")
-            new_city = input("Enter new city: ")
+        if rec.get_name() == name:
             rec.set_name(new_name)
             rec.set_age(new_age)
             rec.set_city(new_city)
@@ -26,12 +22,11 @@ def edit_new_record():
             return
         print("Record not found.")
 
-def delete_record():
-    name_to_delete = input("Enter the name of record to delete: ")
+def delete_record(name):
     for rec in records:
-        if rec.get_name() == name_to_delete:
+        if rec.get_name() == name:
             records.remove(rec)
-            print(f"Record for {name_to_delete} deleted.")
+            print(f"Record for {name} deleted.")
             return
         print("Record not found.")
 
