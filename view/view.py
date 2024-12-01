@@ -10,7 +10,8 @@ class View:
         print("3. Add a new record")
         print("4. Edit an existing record")
         print("5. Delete a record")
-        print("6. Exit")
+        print("6. Generate a Pie Chart")
+        print("7. Exit")
 
     @staticmethod
     def get_user_input(prompt):
@@ -100,3 +101,10 @@ class View:
         except ValueError:
             print("Invalid input. Please enter a valid numeric ID.")
             return None
+
+    @staticmethod
+    def get_column_name():
+        """
+        Prompt the user for the column name to generate a pie chart.
+        """
+        return input("Enter the column name to generate a pie chart: ")

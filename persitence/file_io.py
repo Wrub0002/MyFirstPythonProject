@@ -164,3 +164,20 @@ class FileIO:
             cursor = conn.cursor()
             cursor.execute(query, (record_id,))
             conn.commit()
+
+    @staticmethod
+    def fetch_column_data(column_name):
+        """
+        Fetch data for a specific column from the database.
+        """
+        query = f"SELECT {column_name} FROM records"
+        try:
+            with FileIO.connect_to_db() as conn:
+                cursor = conn.cursor()
+                cursor.execute(query)
+                rows = [row[0] for row in cursor.fetchall()]
+            return rows
+        except Exception as e:
+            print(f"Error fetching data for column '{column_name}': {e}")
+            return None
+

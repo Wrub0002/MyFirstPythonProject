@@ -42,3 +42,14 @@ class RecordManager:
             View.display_message("Record deleted successfully.")
         except Exception as e:
             View.display_message(f"Error deleting record: {e}")
+
+    def get_column_data(self, column_name):
+        """
+        Retrieve data for a specific column from the database.
+        """
+        try:
+            data = FileIO.fetch_column_data(column_name)
+            return data
+        except Exception as e:
+            View.display_message(f"Error retrieving data for column '{column_name}': {e}")
+            return None
